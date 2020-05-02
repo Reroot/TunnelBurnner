@@ -37,6 +37,7 @@ public class reverseBits {
 	}
 	
 	public static void main(String[] args) {
+		int[] arr = new int[1000];
 		System.out.println(binaryRepresentation(43261596));
 		System.out.println("hi");
 	}
