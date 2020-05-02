@@ -1,0 +1,157 @@
+diff between sql and nosql? Key:
+
+**SQL RDBMS 
+NoSQL is a Non-relational or Distributed Database.
+
+**SQL databases are table based databases whereas NoSQL databases 
+can be document based, key-value pairs, graph databases.
+
+**SQL databases are vertically scalable while NoSQL databases 
+are horizontally scalable. --You can manage increasing load by increasing the CPU, 
+RAM, SSD, etc, on a single server. On the other hand, NoSQL 
+databases are horizontally scalable. You can just add few more
+ servers easily in your NoSQL database infrastructure to handle 
+ the large traffic.
+
+**SQL databases have a predefined schema whereas NoSQL databases 
+use dynamic schema for unstructured data
+
+For the type of data to be stored: 
+SQL databases are not best fit for hierarchical data storage. 
+But, NoSQL database fits better for the hierarchical data storage 
+as it follows the key-value pair way of storing data similar to 
+JSON data. NoSQL database are highly preferred for large data 
+set (i.e for big data). Hbase is an example for this purpose.
+
+SQL-
+Examples	Oracle, Postgres, and MS-SQL. MySQL
+
+NOSQL-
+MongoDB, Redis, , Neo4j, Cassandra, Hbase.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+What is Singleton Class in Java ? it's a design pattern. 
+Wher you make it so you're only allowed for ONE 
+insrtance of the class,
+
+1-you make a new instance in the class as static in the class, 
+example,
+2-declare a constructor as private. so now you can't call abc() in main
+3- create a static, create method that returns a obj instance of abc
+4- in main call Abc obj1 = Abc.getinstance;
+
+class abc {
+    static Abc obj = new Abc();
+    private Abc() {
+    }
+    public static Abc getinstance() {
+        return Abc;
+    }
+}
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Find the SECOND HEIGHEST highest salary in empoyee?
+    select max(salary) 
+    from empoyee 
+    where sal 
+    not in(select max(salary) from empoyee
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+display highest salary of each department? hint: 
+if you're using group by you can't use any other columb
+
+select department, sal, name 
+from empoyee 
+group by department
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+will count all rows
+select COUNT(*) FROM empoyee - 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Find duplicate values and frquency of values in a column,
+ find only ones that occur more than once, so only get dupilcates
+
+ -select count name, count(*) from empoyee group by ename
+ then do 
+ -select count name, count(*) from empoyee group by name having count(*)>1
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+sum up all and get the name
+SELECT 
+    inv_num, sum(price) 
+FROM 
+    invoice_items 
+GROUP BY 
+    inv_num 
+ORDER BY 
+    inv_num DESC;
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Inner Join 
+Tthe similar data overlabpping tabel a and b.
+Outer Join
+-Left Outer Join (or Left Join)
+-Right Outer Join (or Right Join)
+-Full Outer Join (or Full Join
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+The Four Pillars of Object Oriented Design
+Abstraction-Abstraction means that we don’t create one class for Robert’s bank account and separate class for Julia’s bank account. Instead, we will write one BankAccount class.
+It might be true that every bank account was opened on a specific
+ date but if our application doesn’t care about that piece of 
+ information, we don’t need to define that attribute in our class 
+ but as we’ll see, it’s abstraction that is the foundation that 
+ supports other fundamentals of object orientation such as 
+ inheritance and polymorphism.
+
+ Of course Abstraction is interested with Inheritance. But there are some important points.
+First of all when you mark a class as abstract you cannot create an instance. This is very important. Abstract classes are used to be inherited only.
+EXTEMND
+Polymorphism-abstraction is interested with Polymorphism. Abstraction forces us to Polymorphism.
+
+Inheritance-WE CAN create AN INSTANCE AND WE CAN EXTEND
+
+Encapsulation-  information hiding. The principal is that the object should not reveal anything about itself except what is absolute necessary for others parts of application to work.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+WHAT IS RACE?
+
+
+what is an api - two apps that talk together
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Symetric encytiopn vs asymetic encryption >>
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Asymmetric Encryption (RSA/HTTP handshake) is a form of Encryption where keys come 
+in pairs. What one key encrypts, only the other can decrypt. 
+Frequently (but not necessarily), the keys are interchangeable, 
+in the sense that if key A encrypts a message, 
+then B can decrypt it, and if key B encrypts a message,
+ then key A can decrypt it.
+
+ Asymmetric Encryption uses two distinct, yet related keys. 
+ One key, the Public Key, is used for encryption and the other, 
+ the Private Key, is for decryption. As implied in the name, 
+ the Private Key is intended to be private so that only the 
+ authenticated recipient can decrypt the message.
+
+The sender after encrypting "The Private Key" with the receiver's
+public key, the sender will has to encrypt the result with
+his/her private key to generate the final message before 
+sending. After receiving the message, the receiver will then 
+need to first decrypt the message with the sender public key.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+You’re using Asymmetric Encryption without even realizing it
+When you visit any HTTPS website/webpage, your browser establishes Asymmetrically 
+encrypted connection with that website. Your browser automatically derives the 
+public key of the SSL/TLS certificate installed on the website 
+(that’s why it’s called ‘Public Key’).
+
+So, this key encrypts any information you send to our website during 
+the initial handshake, and our Private Key will decrypt 
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Symmetric Encryption	
+The Two-square cipher, also called double Playfair, is a manual 
+symmetric encryption technique.[1] 
+
+Symmetric encryption consists of one of key for encryption and decryption.	
+RC4 - 
+
+>>>>>
+
+

@@ -1,0 +1,37 @@
+class LinkNode {
+  Node next = null;
+  int data = 0;
+
+  data(int v) {
+    data = v;
+  }
+
+}
+
+public rev(LinkNode head) {
+  ListNode curr = head;
+  ListNode prev = null;
+  while(curr != null) {
+     ListNode temp = curr.next;
+     curr.next = prev; //reverse pointers
+     prev = curr; //the prev now
+     curr = curr.next;
+   }
+   head = prev; //set head to the prev chain
+   return prev;//the end that will be from the origonal
+  }
+}
+
+
+//recursive
+public class Solution {
+    public ListNode reverseList(ListNode head) {
+        if(head==null || head.next==null)
+            return head;
+        ListNode nextNode=head.next;
+        ListNode newHead=reverseList(nextNode);
+        nextNode.next=head;
+        head.next=null;
+        return newHead;
+    }
+}

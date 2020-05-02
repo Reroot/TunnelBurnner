@@ -1,0 +1,7 @@
+public boolean BinaryPathSum(TreeNode root, int sum) {
+  // sum-root.val == 0, true
+  if(root == null) return false;
+  if(root.left == null && root.right && sum - root.val == 0) { return true}
+
+   return BinaryPathSum(root.left, sum - root.val) || BinaryPathSum(root.right, sum - root.val);
+}

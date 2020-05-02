@@ -1,0 +1,26 @@
+public class Solution {
+    public boolean hasCycle(ListNode head) {
+        //slow and fast pointer, evenutally fast will meet up with slow 
+        //and detinmine a cycle, or it will hit null and be done
+        //egde case
+        if(head == null) return false;
+        ListNode slow = head; 
+        ListNode fast = head;
+        //iterative
+        //make sure that fast pointer isn't hitting null on leap iterations- slow doesn't matter becuase they mirror the same head chain
+        while(fast.next != null && fast.next.next != null) {
+            //increments ARE FIRST
+            slow = slow.next;
+            fast = fast.next.next;
+            if(slow == fast) {
+                return true;
+            }
+        }
+        return false;
+    }
+}
+
+//Use two pointers, walker and runner.
+//walker moves step by step. runner moves two steps at time.
+//if the Linked List has a cycle walker and runner will meet at some
+point.

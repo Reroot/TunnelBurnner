@@ -1,0 +1,137 @@
+15min Main Question
+You have a 25gb file of words on each line, You only have 2gb of Ram to process it, 
+Sort it Alphabetically, how would it be done?  
+
+	Quicksort a fragment 1/10 of the file, 
+	
+	using an ARRAYLIST to go both directions (linkedlist is unilateral), 
+	then use 
+	
+	merge sort to combine the 10 files. 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+Create a system design, that covers everything. You want to fly a plane to los-angeles with a controller to pick up a friend and bring him to home in seatac, you want to do this without leaving your house or going to los angeles. How would you create a system to do this?
+
+Model- It represents the application data domain. In other words applications business logic is contained within the model and is responsible for maintaining data
+View- It represents the user interface, with which the end users communicates. In short all the user interface logic is contained within the VIEW
+Controller- It is the controller that answers to user actions. Based on the user actions, the respective controller responds within the model and choose a view to render that display the user interface. The user input logic is contained with-in the controller
+
+List out few different return types of a controller action method?
+
+View Result
+Javascript Result
+Redirect Result
+Json Result
+Content Result
+
+Advantages 
+
+It represents clear separation between business logic and presentation logic
+Each MVC object has different responsibilities
+The development progresses in parallel
+Easy to manage and maintain
+All classes and object are independent of each other
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+Interview 2 - Javascript + Design Questions
+
+How would you test, what values would you input into perameriers
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+What is javascript and what is it used for?
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+What are the downsides of javascript?
+Javascript is dynamicly typed, so types needs to implicetly defined
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+How can javascript return objects?
+Js objects can be interpred as JSON
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+Can JavaScript Be asynchronous? 
+
+And how - callback functions
+Yes, by using asynchronous js, and writing promises and callbacks to functions.
+asy
+
+When JavaScript is executed, synchronous code has the potential to block further execution until it has finished what it’s doing. In English, long-running JavaScript functions can make the UI or server unresponsive until the function has returned. Obviously this can result in a terrible user-experience.
+
+For example: if you want to load your latest tweets onto a web page, and you do this synchronously, then a visitor to your site won’t be able to do anything until those tweets are loaded. This could cause a long delay before they even get to see the content of your site! I’ve illustrated the problem below:
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+Why do we use try catch? For the users, programmer, and to know where errors happened
+
+Catch errors. try,catch finally
+
+What is the issue with putting many parameters in one function 
+
+The function is doing too much. It should be split into several smaller functions, each which have a smaller parameter set.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Is javascript object oriented? 
+
+JavaScript is heavily object-based. Objects are associative arrays, augmented with prototypes (see below). 
+Object property names are 
+associative array 
+**********
+keys: obj.x = 10 and obj["x"] = 10 
+**********
+are equivalent, the dot notation being merely syntactic sugar. Properties and their values can be added, changed, or deleted at run-time. 
+The properties of an object can also be enumerated via a for...in loop.
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Javascript is an object oriented programming language, nevertheless in 2015 with ECMA script 6 classes have been
+introduced and now is correct to use them like other class based languages like Java. Of course as pointed out
+by the user codemagician in his/her comment, there are some deep differences between how classes work in js and 
+java or other "class based" programming languages.
+
+Nevertheless now in js programming is possible to use for example code like:
+
+class Animal { 
+  constructor(name) {
+    this.name = name;
+  }
+
+
+class Dog extends Animal {
+  speak() {
+    console.log(this.name + ' barks.');
+  }
+}
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+What kind of data structures have you used and why did you use them in your projects over each other? Hashmaps pros/cons, linked lists pro/cons, arraylist pro/cons (use array list for quick sort a file A-Z)
+
+
+
+
+Why do we use try catch? For the users, programmer, and to know where errors happened
+What is the issue with putting many parameters in one function
+Is javascript object oriented?
+Can javascript have classes and class structures?
+What kind of data structures have you used and why did you use them in your projects over each other? Hashmaps pros/cons, linked lists pro/cons, arraylist pro/cons (use array list for quick sort a file A-Z)
+Interview 3 - Software Design, Design Patterns, & Code Problem
+Stocks class a and b, implement a observer design pattern and tell me how it works Explain inheritance
+Explain polymorphism
+Can hashmaps hold more than one element?
+Why use a linkedlist over an arraylist
+What are some data structures and where did you use one in a project? Explain the difference between a interface and abstract
+Reverse a string in code+an extra -- How would you test it, edge cases*
+OnSite Real Interview 6 rounds 30 min-45 each -
+Round 1 Technical Javascript 30min
+>Code to extract values and parameters from a Url input in javascript
+Round 4, 5 Technical Javascript 30mins
+>How would observer design pattern work on a stock buy/sell problem.
+>How would run a button to two methods asynchronously in javascript on a html button
+>Design buttons and resposnes in javascript
+>How would you limit parameters if user inputs char instead of strings?
+>js object value equality checks> how do you do them? & are these right? 5 checks
+>Design and code the fastest algorithim with a random list or random size, how would you code it Effiency. >How would you code a html js button count that updates as two users click a and b buttons?
+>Show me how you did an observer design pattern in your app and how it updates
+
+Round 6 Technical OPP 45min > Senior Head
+>Delete node from doubly linked list
+>Code a breath first search
+>How would a search engine work, how do you populate results >Design a search engine
+>How would a tag manager on a website work?
+Round 2, 3 30 min
+>Ecommerce & Datacollection & SQL fluff
+>What do you do in a conflict of interest/issue with a teammate

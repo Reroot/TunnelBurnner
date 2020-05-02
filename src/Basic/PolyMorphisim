@@ -1,0 +1,42 @@
+The clearest way to express polymorphism is via an abstract base class (or interface)
+
+public abstract class Human{
+   ...
+   public abstract void goPee();
+}
+This class is abstract because the goPee() method is not definable for Humans. It is only definable for the subclasses Male and Female. Also, Human is an abstract concept — You cannot create a human that is neither Male nor Female. It’s got to be one or the other.
+
+So we defer the implementation by using the abstract class.
+
+public class Male extends Human{
+...
+    @Override
+    public void goPee(){
+        System.out.println("Stand Up");
+    }
+}
+and
+
+public class Female extends Human{
+...
+    @Override
+    public void goPee(){
+        System.out.println("Sit Down");
+    }
+}
+Now we can tell an entire room full of Humans to go pee.
+
+public static void main(String[] args){
+    ArrayList<Human> group = new ArrayList<Human>();
+    group.add(new Male());
+    group.add(new Female());
+    // ... add more...
+
+    // tell the class to take a pee break
+    for (Human person : group) person.goPee();
+}
+Running this would yield:
+
+Stand Up
+Sit Down
+...

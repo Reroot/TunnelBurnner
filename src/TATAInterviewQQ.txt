@@ -1,0 +1,87 @@
+First round: Be prepared to answer everything on your resume. 
+
+Be ready to describe what is Java? 
+a general-purpose computer programming language designed to produce programs 
+that will run on any computer system.
+
+*What is a abstract class? 
+Abstract classes are classes that contain one or more abstract methods. 
+An abstract method is a method that is declared, but contains no implementation. 
+
+*Abstract classes may not be instantiated, and require subclasses to provide implementations 
+for the abstract methods.
+
+*Abstract method?
+Abstract methods means there is no default implementation for it and an implementing class
+
+*Instatiate -- represent as or by an instance.
+Think of the common example that is the Employee class; 
+any new employee object used in the program is considered an instance of that class.
+Therefore, the fancy term for creating a new instance of that class is instantiation.
+
+*Why do we use them? What's the difference between interface and abstract. 
+*Can we extend multiple inheritance? 
+*Can we have multiple interfaces?
+
+*Know some SQL queries. SELECT, FROM, IN, OR, WHERE, LIKE, BETWEEN ... *(all) 
+
+The SELECT ... FROM Clause
+The most basic SELECT statement has only 2 parts: (1) what columns you want to return and (2) what table(s) those columns come from.
+If we want to retrieve all of the information about all of the customers in the Employees table, we could use the asterisk (*) as a shortcut for all of the columns, and our query looks like
+
+	SELECT * FROM Employees
+If we want only specific columns (as is usually the case), we can/should explicitly specify them in a comma-separated list, as in
+	
+	SELECT EmployeeID, FirstName, LastName, HireDate, City FROM Employees
+
+The WHERE Clause
+The next thing we want to do is to start limiting, or filtering, the data we fetch from the database. By adding a WHERE clause to the SELECT statement, we add one (or more) conditions that must be met by the selected data. This will limit the number of rows that answer the query and are fetched. In many cases, this is where most of the "action" of a query takes place.
+We can continue with our previous query, and limit it to only those employees living in London:
+
+	SELECT EmployeeID, FirstName, LastName, HireDate, City FROM Employees
+	WHERE City = 'London'
+
+SELECT    EmployeeID, FirstName, LastName, HireDate, City
+FROM      Employees
+WHERE     HireDate BETWEEN '1-june-1992' AND '15-december-1993'
+
+Let us finish this section on the WHERE clause by looking at two additional, slightly more sophisticated, comparison operators.
+What if we want to check if a column value is equal to more than one value? If it is only 2 values, then it is easy enough to test for each of those values, combining them with the OR operator and writing something like
+SELECT EmployeeID, FirstName, LastName, HireDate, City FROM Employees
+WHERE City = 'London' OR City = 'Seattle'
+
+However, if there are three, four, or more values that we want to compare against, the above approach quickly becomes messy. In such cases, we can use the IN operator to test against a set of values. If we wanted to see if the City was either Seattle, Tacoma, or Redmond, we would write
+SELECT EmployeeID, FirstName, LastName, HireDate, City FROM Employees
+WHERE City IN ('Seattle', 'Tacoma', 'Redmond')
+
+*Finally, the LIKE operator allows us to perform basic pattern-matching using wildcard characters. For Microsoft SQL Server, the wildcard characters are defined as follows:
+Wildcard	Description
+_ (underscore)	matches any single character
+%	matches a string of one or more characters
+[ ]	matches any single character within the specified range (e.g. [a-f]) or set (e.g. [abcdef]).
+[^]	matches any single character not within the specified range (e.g. [^a-f]) or set (e.g. [^abcdef]).
+
+A few examples should help clarify these rules.
+
+WHERE FirstName LIKE '_im' finds all three-letter first names that end with 'im' (e.g. Jim, Tim).
+WHERE LastName LIKE '%stein' finds all employees whose last name ends with 'stein'
+WHERE LastName LIKE '%stein%' finds all employees whose last name includes 'stein' anywhere in the name.
+WHERE FirstName LIKE '[JT]im' finds three-letter first names that end with 'im' and begin with either 'J' or 'T' (that is, only Jim and Tim)
+
+
+2nd round was more behavioral questions like...
+
+If a client didn't give you enough detail for your project and it's due in 1 month and you can't reach him, 
+what do you do?
+
+If the client says you can only contact him and you are unable to, what do you do?
+
+You finish a project and while starting a new project for a different client, the previous 
+client says you got bugs to fix, but you still need to finish the new project, what do you do?
+
+If you see someone working on a project but you see a better way of doing it, what do you do?
+
+If you have a team that doesn't cooperate with you, what do you do?
+
+And everytime you a question, they'll keep throwing curve balls so be prepared to adapt to your answers and their questions.
+

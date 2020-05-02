@@ -1,0 +1,255 @@
+OOPs concepts ( mostly polymorphism and difference between encapsulation and abstraction)
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Difference between abstract class and interface.
+-Main difference is methods of a Java interface are implicitly abstract and cannot have implementations. 
+A Java abstract class can have instance methods that implements a default behavior.
+-Variables declared in a Java interface is by default final. An  abstract class may contain non-final variables.
+-Members of a Java interface are public by default. A Java abstract class can have the usual flavors of class members like private, protected, etc..
+-Java interface should be implemented using keyword “implements”; A Java abstract class should be extended using keyword “extends”.
+-An interface can extend another Java interface only, an abstract class can extend another Java class and implement multiple Java interfaces.
+-A Java class can implement multiple interfaces but it can extend only one abstract class.
+-Interface is absolutely abstract and cannot be instantiated; A Java abstract class also cannot be instantiated, but can be invoked if a main() exists.
+-In comparison with java abstract classes, java interfaces are slow as it requires extra indirection.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Overloading allows different methods to have the same name, 
+but different signatures where the signature can differ by
+ the number of input parameters or type of input parameters or both. Overloading is related to compile-time (or static) polymorphism.
+// Java program to demonstrate working of method 
+// overloading in Java. 
+
+public class Sum { 
+
+	// Overloaded sum(). This sum takes two int parameters 
+	public int sum(int x, int y) 
+	{ 
+		return (x + y); 
+	} 
+
+	// Overloaded sum(). This sum takes three int parameters 
+	public int sum(int x, int y, int z) 
+	{ 
+		return (x + y + z); 
+	} 
+
+	// Overloaded sum(). This sum takes two double parameters 
+	public double sum(double x, double y) 
+	{ 
+		return (x + y); 
+	} 
+
+	// Driver code 
+	public static void main(String args[]) 
+	{ 
+		Sum s = new Sum(); 
+		System.out.println(s.sum(10, 20)); 
+		System.out.println(s.sum(10, 20, 30)); 
+		System.out.println(s.sum(10.5, 20.5)); 
+	} 
+} 
+
+Difference B/W overRiding and overLoading:
+-in over riding perameters and type of method remain same. but its internal properties changed you can say over ridden.
+-in over loading the name of method is same but parameters are different. according to type or in number. the call to these functions depends on the parameters compatibility…
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Difference between == and .equals() functions.
+Main difference between .equals() method and == operator is that one is method and other is operator.
+We can use == operators for reference comparison (address comparison) and .equals() method for content comparison. In simple words, == checks if both objects point to the same memory location whereas .equals() evaluates to the comparison of values in the objects.
+If a class does not override the equals method, then by default it uses equals(Object o) method of the closest parent class that has overridden this method. See this for detail
+
+// Java program to understand  
+// the concept of == operator 
+public class Test { 
+    public static void main(String[] args) 
+    { 
+        String s1 = new String("HELLO"); 
+        String s2 = new String("HELLO"); 
+        System.out.println(s1 == s2);//false, diffrent address
+        System.out.println(s1.equals(s2)); //true, equal content
+    } 
+} 
+Output:
+
+false
+true
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+What is Hash Map ? Data struc, stores objects as key/value pairs in memory
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+What is Hash Table ? Suppose we want to design a system for storing employee records keyed using phone numbers.
+
+Hash Table: An array that stores pointers to records corresponding to a given phone number. An entry in hash table is NIL if no existing phone number has hash function value equal to the index for the entry.
+Collision Handling: Since a hash function gets us a small number for a big key, there is possibility that two keys result in same value. The situation where a newly inserted key maps to an already occupied slot in hash table is called collision and must be handled using some collision handling technique. Following are the ways to handle collisions:
+Chaining:The idea is to make each cell of hash table point to a linked list of records that have same hash function value. Chaining is simple, but requires additional memory outside the table.
+Open Addressing: In open addressing, all elements are stored in the hash table itself. Each table entry contains either a record or NIL. When searching for an element, we one by one examine table slots until the desired element is found or it is clear that the element is not in the table.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Types of Exceptions?
+
+ArithmeticException
+It is thrown when an exceptional condition has occurred in an arithmetic operation.
+ArrayIndexOutOfBoundsException
+It is thrown to indicate that an array has been accessed with an illegal index. The index is either negative or greater than or equal to the size of the array.
+ClassNotFoundException
+This Exception is raised when we try to access a class whose definition is not found
+FileNotFoundException
+This Exception is raised when a file is not accessible or does not open.
+IOException
+It is thrown when an input-output operation failed or interrupted
+InterruptedException
+It is thrown when a thread is waiting , sleeping , or doing some processing , and it is interrupted.
+NoSuchFieldException
+It is thrown when a class does not contain the field (or variable) specified
+NoSuchMethodException
+It is thrown when accessing a method which is not found.
+NullPointerException
+This exception is raised when referring to the members of a null object. Null represents nothing
+NumberFormatException
+This exception is raised when a method could not convert a string into a numeric format.
+RuntimeException
+This represents any exception which occurs during runtime.
+StringIndexOutOfBoundsException
+It is thrown by String class methods to indicate that an index is either negative than the size of the string
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Difference between Exceptions and Errors.
+Error and Exception both extend Throwable, but mostly Error is thrown by JVM in a scenario which is fatal and there is no way for the application program to recover from that error. For instance OutOfMemoryError.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Difference between throw, throws and throwable.
+throw: statement to throw object t where t instanceof java.lang.Throwable must be true.
+throws: a method signature token to specify checked exceptions thrown by that method.
+java.lang.Throwable: the parent type of all objects that can be thrown (and caught).
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Difference between final, finalize and finally.
+ final	finally	finalize
+1)	
+Final is used to apply restrictions on class, method and variable. 
+Final class can't be inherited, 
+final method can't be overridden and final variable value can't be changed.	
+
+>>Finally is used to place important code, it will be executed whether exception is handled or not.
+>>Finalize is used to perform clean up processing just before object is garbage collected.
+>>Final is a keyword.	>>Finally is a block.	>>Finalize is a method.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+What is class? In object-oriented programming, a class is an extensible program-code-template for creating objects, providing initial values for state and implementations of behavior. Wikipedia
+What is an object? In computer science, an object can be a variable, a data structure, a function, or a method, and as such, is a value in memory referenced by an identifier.
+Difference between class and object.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Method overloading.
+Three ways to overload a method
+In order to overload a method, the argument lists of the methods must differ in either of these:
+1. Number of parameters.
+For example: This is a valid case of overloading, Method overloading is an example of Static Polymorphism. We will discuss polymorphism and types of it in a separate tutorial.
+1. Static Polymorphism is also known as compile time binding or early binding.
+2. Static binding happens at compile time. Method overloading is an example of static binding where binding of method call to its definition happens at Compile time.
+
+
+add(int, int)
+add(int, int, int)
+
+2. Data type of parameters.
+For example:
+
+add(int, int)
+add(int, float)
+3. Sequence of Data type of parameters.
+For example:
+
+add(int, float)
+add(float, int)
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Method overriding. - for inherited
+Overriding is a feature that allows a subclass or child class to provide a specific implementation of a method that is already provided by one of its super-classes or parent classes. 
+When a method in a subclass has the same name, same parameters or signature and same return type(or sub-type) 
+
+as a method in its super-class, then the method in the subclass is said to override the method in the super-class.
+Private methods can not be overridden : Private methods cannot be overridden as they are bonded during compile time. Therefore we can’t even override private methods in a subclass.(See this for details).
+
+
+The overriding method must have same return type (or subtype) : From Java 5.0 onwards it is possible to have different return type for a overriding method in child class, but child’s return type should be sub-type of parent’s return type. 
+
+This phenomena is known as covariant return type.
+
+--------
+The overriding method must have same return type (or subtype) : From Java 5.0 onwards it is possible to have different return type for a overriding method in child class, but child’s return type should be sub-type of parent’s return type. This phenomena is known as covariant return type.
+Invoking overridden method from sub-class : We can call parent class method in overriding method using super keyword.
+-------------
+Static methods can not be overridden(Method Overriding vs Method Hiding) : When you defines a static method with same signature as a static method in base class, it is known as method hiding.
+The following table summarizes what happens when you define a method with the same signature as a method in a super-class.
+-------------
+Final methods can not be overridden : If we don’t want a method to be overridden, we declare it as final. Please see Using final with Inheritance .
+-------------
+Invoking overridden method from sub-class : We can call parent class method in overriding method using super keyword.
+-------------
+Overriding and Exception-Handling : Below are two rules to note when overriding methods related to exception-handling.
+Rule#1 : If the super-class overridden method does not 
+throws an exception, subclass overriding method can only throws the unchecked exception, throwing checked exception will lead to compile-time error.
+
+Rule#2 : If the super-class overridden method does throws an exception, 
+subclass overriding method can only throw same, subclass exception. Throwing parent exception in Exception hierarchy will lead to compile time error.Also there is no issue if subclass overridden method is not throwing any exception.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Polymorphism is essential to object-oriented programming for one reason: it allows a general class to 
+specify methods that will be common to all of its derivatives while allowing 
+subclasses to define the specific implementation of some or all of those methods. 
+Overridden methods are another way that Java implements the 
+“one interface, multiple methods” aspect of polymorphism.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+What is a thread?
+A thread is an independent set of values for the processor registers (for a single core). Since this includes the Instruction Pointer (aka Program Counter), it controls what executes in what order. It also includes the Stack Pointer, which had better point to a unique area of memory for each thread or else they will interfere with each other.
+Threads are the software unit affected by control flow (function call, loop, goto), because those instructions operate on the Instruction Pointer, and that belongs to a particular thread. Threads are often scheduled according to some prioritization scheme (although it's possible to design a system with one thread per processor core, in which case every thread is always running and no scheduling is needed).
+
+Different ways to create threads.
+Constructors of Thread class
+1. Thread( )
+2. Thread(String str)
+3. Thread(Runnable r)
+4. Thread(Runnable r, String str)
+
+Thread class defines many methods for managing threads. Some of them are:
+
+Method	Description
+setName()	---to give thread a name
+getName()	---return thread’s name
+getPriority()	---return thread’s priority
+isAlive()	checks if thread is still running or not
+join()	Wait for a thread to end
+run()	Entry point for a thread
+sleep()	suspend thread for a specified time
+start()	start a thread by calling run() method
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Prerequisites:Need of ConcurrentMap
+ConcurrentHashMap ConcurrentHashMap class is introduced in JDK 1.5, which implements ConcurrentMap as well as Serializable interface also. ConcureentHashMap is enhancement of HashMap as we know that while dealing with Threads in our application HashMap is not a good choice because performance wise HashMap is not upto the mark.
+
+Key points of ConcurrentHashMap:
+
+The underlined data structure for ConcurrentHashMap is Hashtable.
+ConcurrentHashMap class is thread-safe i.e. multiple thread can operate on a single object without any complications.
+At a time any number of threads are applicable for read operation without locking the ConcurrentHashMap object which is not there in HashMap.
+In ConcurrentHashMap, the Object is divided into number of segments according to the concurrency level.
+Default concurrency-level of ConcurrentHashMap is 16.
+In ConcurrentHashMap, at a time any number of threads can perform retrieval operation but for updation in object, thread must lock the particular segment in which thread want to operate.This type of locking mechanism is known as Segment locking or bucket locking.Hence at a time 16 updation operations can be performed by threads.
+null insertion is not possible in ConcurrentHashMap as key or value
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+File handling in java.
+
+import java.io.*;
+public class CopyFile {
+   public static void main(String args[]) throws IOException {  
+      FileInputStream in = null;
+      FileOutputStream out = null;
+      try {
+         in = new FileInputStream("input.txt");
+         out = new FileOutputStream("output.txt");
+         int c;
+         while ((c = in.read()) != -1) {
+            out.write(c);
+         }
+      } finally {
+         if (in != null) {
+            in.close();
+         }
+         if (out != null) {
+            out.close();
+         }
+      }
+   }
+}

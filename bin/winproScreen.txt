@@ -1,0 +1,72 @@
+Why is a string immutable?
+
+The string is Immutable in Java because String objects are cached in String pool. Since cached String literals are shared between multiple clients there is always a risk
+
+Read more: https://javarevisited.blogspot.com/2010/10/why-string-is-immutable-or-final-in-java.html#ixzz6AgJ13aoj
+
+Java: String is Immutable. What exactly is the meaning?
+Before proceeding further with the fuss of immutability, let’s just take a look into the String class and its functionality a little before coming to any conclusion.
+
+This is how String works:
+
+String str = "knowledge";
+This, as usual, creates a string containing "knowledge" and assigns it a reference str. Simple enough? Lets perform some more functions:
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+2) String has been widely used as parameter for many Java classes e.g. for opening network connection, you can pass hostname and port number as string, you can pass database URL as a string for opening database connection, you can open any file in Java by passing the name of the file as argument to File I/O classes.
+
+In case, if String is not immutable, this would lead serious security threat, I mean someone can access to any file for which he has authorization,
+
+Read more: https://javarevisited.blogspot.com/2010/10/why-string-is-immutable-or-final-in-java.html#ixzz6AgIwsUon
+ 
+// assigns a new reference to the 
+// same string "knowledge"
+String s = str;     
+Let’s see how the below statement works:
+
+  str = str.concat(" base");
+This appends a string " base" to str. But wait, how is this possible, since String objects are immutable? Well to your surprise, it is.
+
+When the above statement is executed, the VM takes the value of String str, i.e. "knowledge" and appends " base", giving us the value "knowledge base". Now, since Strings are immutable, the 
+VM can’t assign this value to str, so it creates a new String object, gives it a value "knowledge base", and gives it a reference str.
+
+An important point to note here is that, while the String object is immutable, its reference variable is not. So that’s why, in the above example,
+ the reference was made to refer to a newly formed String object.
+
+At this point in the example above, we have two String objects: the first one we created with value "knowledge", 
+pointed to by s, and the second one "knowledge base", pointed to by str. But, technically, we have three String objects, 
+the third one being the literal "base" in the concat statement.
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+
+final vs Immutability in Java
+final :--- In Java, final is a modifier which is used for class, method and variable also. When a variable is declared with final keyword, it’s value can’t be modified, essentially, a constant.
+Immutability :-- In simple terms, immutability means unchanging over time or unable to be changed. In Java, we know that String objects are immutable means we cant change anything to the existing String objects.
+final methods cant be overriddern
+Differences between final and immutability
+
+final --- means that you can’t change the object’s reference to point to another reference or another object, but you can still mutate its state (using setter methods e.g). 
+Whereas immutable means that the object’s actual value can’t be changed, but you can change its reference to another one.
+
+final modifier is applicable for variable but not for objects, Whereas immutability applicable for an object but not for variables.
+By declaring a reference variable as final, we won’t get any immutability nature, Even though reference variable is final. We can perform any
+ type of change in the corresponding Object. But we cant perform reassignment for that variable.
+final ensures that the address of the object remains the same whereas the Immutable suggests that we can’t change the state of the object once created.
+
+final ensures that the address of the object remains the same whereas the Immutable suggests that we can’t change the state of the object once created.
+
+diffrence between final and static. 
+
+How can to tell what data comes in? and how to you acess it
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>.
+When to pick abstract class vs interface
+
+An abstract class allows you to create functionality that
+ subclasses can implement or override. An interface only
+  allows you to define functionality, not implement it. 
+  And whereas a class can extend only one abstract class, 
+  it can take advantage of multiple interfaces.
+
+  

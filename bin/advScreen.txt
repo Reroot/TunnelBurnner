@@ -1,0 +1,134 @@
+Algorithms:
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Binary Search -- B search on a sorted array is 0(logn) time
+
+// Java implementation of iterative Binary Search 
+class BinarySearch { 
+	// Returns index of x if it is present in arr[], 
+	// else return -1 
+	int binarySearch(int arr[], int x) 
+	{ 
+		int l = 0, r = arr.length - 1; 
+		while (l <= r) { 
+			int m = l + (r - l) / 2; 
+
+			// Check if x is present at mid 
+			if (arr[m] == x) 
+				return m; 
+
+			// If x greater, ignore left half 
+			if (arr[m] < x) 
+				l = m + 1; 
+
+			// If x is smaller, ignore right half 
+			else
+				r = m - 1; 
+		} 
+
+		// if we reach here, then element was 
+		// not present 
+		return -1; 
+	} 
+
+	// Driver method to test above 
+	public static void main(String args[]) 
+	{ 
+		BinarySearch ob = new BinarySearch(); 
+		int arr[] = { 2, 3, 4, 10, 40 }; 
+		int n = arr.length; 
+		int x = 10; 
+		int result = ob.binarySearch(arr, x); 
+		if (result == -1) 
+			System.out.println("Element not present"); 
+		else
+			System.out.println("Element found at "
+							+ "index " + result); 
+	} 
+} 
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+
+Quick Sort (Complexity and logic )
+Like Merge Sort, QuickSort is a Divide and Conquer algorithm. It picks an element as pivot and partitions the given array around the picked pivot. There are many different versions of quickSort that pick pivot in different ways.
+
+Always pick first element as pivot.
+Always pick last element as pivot (implemented below)
+Pick a random element as pivot.
+Pick median as pivot.
+The key process in quickSort is partition(). Target of partitions is, given an array and an element x of array as pivot, put x at its correct position in sorted array and put all smaller elements (smaller than x) before x, and put all greater elements (greater than x) after x. All this should be done in linear time.
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Merge Sort (Complexity and logic )
+
+Time Complexity: Sorting arrays on different machines. Merge Sort is a recursive algorithm and time complexity can be expressed as following recurrence relation.
+T(n) = 2T(n/2) + \Theta(n)
+The above recurrence can be solved either using Recurrence Tree method or Master method. It falls in case II of Master Method and solution of the recurrence is \Theta(nLogn).
+Time complexity of Merge Sort is \Theta(nLogn) in all 3 cases (worst, average and best) as merge sort always divides the array into two halves and take linear time to merge two halves.
+
+compllexity: O(nLogn).
+Auxiliary Space: O(n)
+
+Algorithmic Paradigm: Divide and Conquer
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Difference between Merge sort, Quick sort
+
+
+>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+Which one is better Merge sort or Quick sort and why ?
+BFS
+
+Pseudocode
+
+BFS (G, s)                   //Where G is the graph and s is the source node
+      let Q be queue.
+      Q.enqueue( s ) //Inserting s in queue until all its neighbour vertices are marked.
+
+      mark s as visited.
+      while ( Q is not empty)
+           //Removing that vertex from queue,whose neighbour will be visited now
+           v  =  Q.dequeue( )
+
+          //processing all the neighbours of v  
+          for all neighbours w of v in Graph G
+               if w is not visited 
+                        Q.enqueue( w )             
+						//Stores w in Q to further visit its neighbour
+                        mark w as visited.
+
+
+
+DFS
+
+
+
+Data Structures:
+What is a binary tree?
+What is binary search tree?
+What is linked list and its types.
+Implement stack/queue using linked list.
+Memory management (Heap and stack )
+AVL tree
+Difference between array and linked list.
+Reverse a linked list.
+Find middle element of a linked list.
+How to Detect loop in a linked list?
+Top view / Left view / Right view / Diagonal view of binary tree
+Right rotate a matrix
+Check if a binary tree is sub tree of another binary tree.
+Operating System:
+
+Difference between process and thread.
+What is dead lock?
+Critical Section Problem
+What is Thrashing ?
+Paging.
+Page Fault.
+DBMS:
+
+Difference between Primary key and Candidate key.
+What are Joins and types of Joins.
+Find second highest salary from Employee table.
+ACID Properties.
+Other questions:
+
+Reverse a string.
+Find maximum occurring character/word in a given string.
+Recursively check if a given string is a palindrome.
