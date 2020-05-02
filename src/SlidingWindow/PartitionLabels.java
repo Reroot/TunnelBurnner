@@ -1,6 +1,12 @@
+package SlidingWindow;
+
+import java.util.ArrayList;
+import java.util.List;
+
 // traverse the string record the last index of each char.
 // using pointer to record end of the current sub string.
-public List<Integer> partitionLabels(String S) {
+class partitionLabels {
+	public List<Integer> partitionLabels(String S) {
         if(S == null || S.length() == 0){
             return null;
         }
@@ -22,3 +28,4 @@ public List<Integer> partitionLabels(String S) {
         }
         return list;
     }
+}

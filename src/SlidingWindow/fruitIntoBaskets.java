@@ -1,12 +1,14 @@
+package SlidingWindow;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Map;
 
 class fruitIntoBaskets {
 //     Java:
 // Time O(N), Space O(N)
 
-    public int totalFruit(int[] tree) {
-        Map<Integer, Integer> count = new HashMap<>();
+    public int totalFruit1(int[] tree) {
+        Map<Integer, Integer> count = new HashMap<Integer, Integer>();
         int i = 0, j;
         for (j = 0; j < tree.length; ++j) {
             count.put(tree[j], count.getOrDefault(tree[j], 0) + 1);
@@ -23,7 +25,7 @@ class fruitIntoBaskets {
 // Output: 4
 // Explanation: We can collect [2,3,2,2].
 // If we started at the first tree, we would only collect [1, 2].
-        public int totalFruit(int[] tree) {
+        public int totalFruit2(int[] tree) {
             int start = 0;
             int n = tree.length;
             int maxLength = 0;

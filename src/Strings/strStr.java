@@ -19,7 +19,10 @@
 
 
 class strStr {
-    public int strStr(String haystack, String needle) {
+    private int len1;
+	private int len2;
+
+	public int strStr(String haystack, String needle) {
         len1 = haystack.length();
         len2 = needle.length();
         if(len1 < len2) {
