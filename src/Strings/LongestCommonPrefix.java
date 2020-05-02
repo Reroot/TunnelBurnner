@@ -1,3 +1,5 @@
+package Strings;
+
 //Scan all the strings with the same pace, once we reach the end of a string or find a mismatch we return the result.
 
 class longestCommonPrefix {
