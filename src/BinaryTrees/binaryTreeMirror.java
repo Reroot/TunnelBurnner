@@ -3,7 +3,7 @@ package BinaryTrees;
 import java.util.*;
 
 public class binaryTreeMirror {
-	static void mirror(TreeNode root) { 
+	static void mirrorBFS(TreeNode root) { 
 	    if (root == null) 
 	        return; 
 	    Queue<TreeNode> q = new LinkedList<TreeNode>(); 
@@ -47,7 +47,7 @@ public class binaryTreeMirror {
 	    inOrder(root); 
 	  
 	    /* Convert tree to its mirror */
-	    mirror(root); 
+	    mirrorBFS(root); 
 	  
 	    /* Print inorder traversal of the mirror tree */
 	    System.out.print( "\n Inorder traversal of the "+ 

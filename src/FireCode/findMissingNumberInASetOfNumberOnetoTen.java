@@ -12,7 +12,17 @@ public class findMissingNumberInASetOfNumberOnetoTen {
 	    
 	    return norm - test;
 	}
-	
+	public static int findMissingNumber2(int[] arr) {
+	    int total = 0;//10th
+	    int arrtotal = 0;
+	    for(int i = 0;i<=10;i++) {
+	        total += i;
+	    }
+	    for(int i = 0;i<arr.length;i++) {
+	        arrtotal += arr[i];
+	    }
+	    return total-arrtotal;
+	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 

@@ -1,5 +1,6 @@
 package FireCode;
 
+import java.util.Arrays;
 import java.util.Stack;
 
 //Rotate an array to the left by k positions without using extra space.k can be greater than the size of the array.
@@ -44,24 +45,30 @@ public class rotateArrayLeft {
 	public static String rotateLeft(int[] arr, int k) {
 	    //reverse the whole array, then reverse 0-k, ex, "1,2,3,45", k=3, == 5,4,3,2,1 => 3,4,5,--then revers k-len 2,1
 	    k = k % arr.length;
-	    arr = reverse(arr, 0, arr.length-1-k);
+	    reverse(arr, 0, arr.length-1-k);
 	    System.out.println(String.valueOf(arr));
-	    arr = reverse(arr, 0, arr.length-k);//we sub 1 beacuse k is not 0 based
+	    reverse(arr, 0, arr.length-k);//we sub 1 beacuse k is not 0 based
 	    System.out.println(String.valueOf(arr));
-	    arr = reverse(arr, k, arr.length-1);
+	    reverse(arr, k, arr.length-1);
 	    System.out.println(String.valueOf(arr));
-	    return String.valueOf(arr);
+	    StringBuilder b = new StringBuilder();
+	    
+	    //CONVERT PRIMITIVE INT TO STRING ARRAY, THEN USE ARRAYS
+	    String strArray[] = Arrays.stream(arr)
+				.mapToObj(String::valueOf)
+				.toArray(String[]::new);
+	    return Arrays.toString(strArray);
 	}
 
-	public static int[] reverse(int[] arr, int s, int h) {
-	    while(s<=h) {
+	public static void reverse(int[] arr, int s, int h) {
+		if(arr == null || arr.length == 1) return;
+	    while(s < h) {
 	        int temp = arr[s];
 	        arr[s] = arr[h];
 	        arr[h] = temp;
 	        s++;
 	        h--;
 	    }
-	    return arr;
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
