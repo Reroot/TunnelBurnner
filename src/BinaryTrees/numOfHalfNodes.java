@@ -8,7 +8,6 @@ public class numOfHalfNodes {
 	public int numberOfHalfNodes(TreeNode root) { 
 	    //level order with a check of left && right exist == 0, and else 1++
 	    if(root == null) return 0;
-
 	    TreeNode curr = root;
 	    Queue<TreeNode> que = new LinkedList<TreeNode>();
 	    que.offer(curr);
