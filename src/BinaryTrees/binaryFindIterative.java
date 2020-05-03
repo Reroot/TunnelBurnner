@@ -15,7 +15,7 @@ public class binaryFindIterative {//ie level order
 	    	q.add(root);
 	    	while(!q.isEmpty()) {//good
 	    		TreeNode n = q.poll();
-	            if(n.data == val) {//good
+	            if(n.val == val) {//good
 	                return true;
 	            } 
 	            if(n.left != null) {
