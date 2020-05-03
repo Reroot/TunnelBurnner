@@ -49,22 +49,18 @@ public class deleteNodeFromDoublyLinkedList {
 				curr.next.prev = null;
 				curr = curr.next; //shift node to the next node we are NOT deleting
 				temp = null;//nullify the old position
+				return curr;
 			} else {//middle case
 				DoublyListNode temp = curr.next;
 				DoublyListNode temp2 = prev;
 				curr = null;
 				curr.next = null;//nullfy curr pointer
-				prev.next.prev = null;//nullfy curr prev pointer
-				temp.prev = temp2;//set the next curr to the org prev
-				temp2.next = temp;//set prev.next to the og curr pointer
+				curr.prev = null;//nullfy curr prev pointer
+				temp.prev = temp2;// curr.next.prev = prev, point back
+				temp2.next = temp;// prev.next = curr.next
+				return head;
 			}
 		}
-
-		
-		
-		
-		
-		
 		return head;
 	}
 }
