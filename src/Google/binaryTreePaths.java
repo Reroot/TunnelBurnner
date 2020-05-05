@@ -7,14 +7,13 @@ import java.util.Queue;
 
 
 //https://leetcode.com/problems/binary-tree-paths/discuss/68278/My-Java-solution-in-DFS-BFS-recursion
-public class binaryTreePaths {//DO ALL FORMS!!!
+public class binaryTreePaths {//This is nomal bfs
 	//BFS, add the paths inside the if statements
 		//BFS - Queue
 		public static List<String> binaryTreePaths3(TreeNode root) {
 		    List<String> list=new ArrayList<String>();
 		    Queue<TreeNode> qNode=new LinkedList<TreeNode>();
 		    Queue<String> qStr=new LinkedList<String>();
-		    
 		    if (root==null) return list;
 		    qNode.add(root);
 		    qStr.add("");
