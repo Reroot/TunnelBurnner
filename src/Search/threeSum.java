@@ -7,7 +7,6 @@ public class threeSum {
     private static int n3;
 	public static List<List<Integer>> threeSum(int[] nums) {
 	    List<List<Integer>> res = new LinkedList<>(); 
-
     	Arrays.sort(nums);
     	
     	for(int i = 1;i<nums.length;i++) {//binary search for num[i] + num[i+1] + ? = 0;
