@@ -1,6 +1,6 @@
 package LinkedLists;
 
-public class findNthNodeFromEnd {
+public class findNthNodeFromEndNoMem {
 	// java.util.* and java.util.streams.* have been imported for this problem.
 	// You don't need any other imports.
 
@@ -23,14 +23,9 @@ public class findNthNodeFromEnd {
 	                       diff--;
 	                   } 
 	               }
-	               
-	                
-	                return curr;
-	    
+	               return curr;
 	}
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-
 	}
 
 }
