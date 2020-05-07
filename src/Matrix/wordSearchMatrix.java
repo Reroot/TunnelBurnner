@@ -30,10 +30,10 @@ public class wordSearchMatrix {
         //use bfs, instead and count or break as we iterate
         char[] wchars = word.toCharArray();
         int i = 0;
-        for(int rows=0;rows<matrix.length;rows++) {
-           for(int col = 0;col<matrix[0].length;col++) {
-               if(w[i] == matrix[col][row]) {
-                   dfs(matrix, row, col, i);
+        for(int rows=0;rows<word.length();rows++) {
+           for(int col = 0;col<word[0].length;col++) {
+               if(w[i] == word[col][row]) {
+                   dfs(word, row, col, i);
                } else {
                    i++;
                }
@@ -42,6 +42,6 @@ public class wordSearchMatrix {
     }
     
     public static void dfs(int[][] m, int row, int col, int i, char[] s) {
-        if(row > 0 || col > 0 || row > matrix.length || col > matrix[0].length || matrix[row][col] != s[i]) return false; 
+        if(row > 0 || col > 0 || row > word.length || col > word[0].length || word[row][col] != s[i]) return false; 
     }
 }
