@@ -25,23 +25,23 @@ public class wordSearchMatrix {
 	}
 	
 	
-    public boolean existbad(char[][] board, String word) {
-        //hashmap, iter matrix, grab letter, grab count--run though keyset and check for maching count, ,exist if all letter pass as exists, and count is at equal or greater.
-        //use bfs, instead and count or break as we iterate
-        char[] wchars = word.toCharArray();
-        int i = 0;
-        for(int rows=0;rows<word.length();rows++) {
-           for(int col = 0;col<word[0].length;col++) {
-               if(w[i] == word[col][row]) {
-                   dfs(word, row, col, i);
-               } else {
-                   i++;
-               }
-           } 
-        }
-    }
+//    public boolean existbad(char[][] board, String word) {
+//        //hashmap, iter matrix, grab letter, grab count--run though keyset and check for maching count, ,exist if all letter pass as exists, and count is at equal or greater.
+//        //use bfs, instead and count or break as we iterate
+//        char[] wchars = word.toCharArray();
+//        int i = 0;
+//        for(int rows=0;rows<word.length();rows++) {
+//           for(int col = 0;col<word[0].length;col++) {
+//               if(w[i] == word[col][row]) {
+//                   dfs(word, row, col, i);
+//               } else {
+//                   i++;
+//               }
+//           } 
+//        }
+//    }
     
     public static void dfs(int[][] m, int row, int col, int i, char[] s) {
-        if(row > 0 || col > 0 || row > word.length || col > word[0].length || word[row][col] != s[i]) return false; 
+        //if(row > 0 || col > 0 || row > word.length || col > word[0].length || word[row][col] != s[i]) return false; 
     }
 }
