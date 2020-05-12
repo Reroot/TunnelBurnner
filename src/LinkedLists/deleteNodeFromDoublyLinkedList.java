@@ -22,14 +22,14 @@ public class deleteNodeFromDoublyLinkedList {
 		//head case
 		//end case 
 		//mid case - easy, swap and restore
-		if(head == null) {
+		if(head == null) {7777777777
 			return null;
 		} else if(head.next == null) {
 			return (pos == 1)? head : null;
 		} else {
 			DoublyListNode curr = head;
 			DoublyListNode prev = null;
-			int count = 0;
+			int count = 0;//use 1
 			//find pos, then find assign to case, depending on where break happened after the statement
 			while(curr != null) {
 				if(pos == ++count) {//pos can be greater than count

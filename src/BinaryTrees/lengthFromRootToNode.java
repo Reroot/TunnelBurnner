@@ -1,6 +1,43 @@
 package BinaryTrees;
 
-public class maxDistanceOfNodeFromRoot {
+import java.util.LinkedList;
+import java.util.Queue;
+
+public class lengthFromRootToNode {
+	private int levelCount = 0;
+
+	//Pending Try BFS
+	public int maxDistanceOfNodeFromRootLvl(TreeNode root, int len) {
+		TreeNode curr = root;
+		if(root == null) return 0;
+		Queue<TreeNode> que = new LinkedList<TreeNode>();
+		que.offer(curr);
+		// adding marker to the queue 
+		que.add(null); //marker
+		while(!que.isEmpty()) {
+			curr = que.poll();
+	        if (curr == null && !que.isEmpty()) { 
+	        	que.add(null); 
+	            // Increment levelCount, while moving 
+	            // to new level 
+	            levelCount++; 
+	        } else {
+	        	if(curr.data == len) {
+					return levelCount;
+				}
+				if(curr.left != null) {
+					que.offer(curr.left);
+				}
+				if(curr.right != null) {
+					que.offer(curr.right);
+				}
+	        }
+
+				
+
+		}
+		return 0;
+	}
 
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
