@@ -22,7 +22,7 @@ public class deleteNodeFromDoublyLinkedList {
 		//head case
 		//end case 
 		//mid case - easy, swap and restore
-		if(head == null) {7777777777
+		if(head == null) {
 			return null;
 		} else if(head.next == null) {
 			return (pos == 1)? head : null;
