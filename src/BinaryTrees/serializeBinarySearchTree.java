@@ -1,64 +1,99 @@
 package BinaryTrees;
 
 public class serializeBinarySearchTree {
-	// java.util.* and java.util.streams.* have been imported for this problem.
-	// You don't need any other imports.
-//CLUSTERFUCK but good try
-//	public String serializeTree(TreeNode root){
-//	    //covert bst to str, recurse from in order, then restore inordder
-//	    TreeNode curr = root;
-//	    Stack<TreeNode> stk = new Stack<TreeNode>();
-//	    StringBuilder sb = new StringBuilder();
-//	    while(!stk.isEmpty() || curr != null) {//still o(n) as increasing wont increase the complexity
-//	        while(curr != null) {
-//	            stk.push(curr);
-//	            curr = curr.left;
-//	        }
-//	        curr = stk.pop();
-//	        sb.append(curr.data);
-//	        curr = curr.right;
-//	    }
-//	    return sb.toString();
-//	}
-//
-//	public TreeNode restoreTree(String str){
-//	    //rebuild tree
-//	        //covert bst to str, recurse from in order, then restore inordder
-//	    strIter = str.toCharArray();
-//	    TreeNode curr = root;
-//	    Deque<TreeNode> que = new LinkedList<TreeNode>();
-//	    Stack<TreeNode> stk = new Stack<TreeNode>();
-//	    for(int x : strIter) { //so que is 1,2,3tail
-//	        que.offer(new TreeNode(x));
-//	    }//we know the size before hand and so where the n/2 will be, use peak as root
-//	    int countQ = que.size();
-//	    int mid = countQ/2;
-//	    
-//	    for(--countQ > mid) { //so que is 1,2,3tail
-//	        stk.push(que.pop());
-//	    }//we know the size before hand and so where the n/2 will be, use peak as root
-//	    //3
-//	    TreeNode root = stk.pop();//last thing will be mid
-//	    TreeNode curr = root;//3
-//	    while(!que.isEmpty() || curr != null) {//still o(n) as increasing wont increase the complexity
-//	        while(curr != null) {
-//	            ////leftover in the stack is the lesser left, 
-//	            curr.left = stk.pop();//build from the rest of the lest, as root the last node of the stack was the highest
-//	            stk.push(c);
-//	        }//rebuild right from root
-//	        curr.right = que.poll();//poll heads are lesser out wards from the root. 
-//	        
-//	    }
-//	    
-//	    return root;
-//	    
-//
-//	    
-//	    recurseBuild();
-//	}
+
+    // Encodes a tree to a single string.
+    public String serialize(TreeNode root) {
+		return null;
+        
+    }
+
+    // Decodes your encoded data to tree.
+    public TreeNode deserialize(String data) {
+		return null;
+        
+    }
+	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
 
 	}
 
 }
+//Serialization is the process of converting a data structure or object into a sequence of bits so that it can be stored in a file or memory buffer, or transmitted across a network connection link to be reconstructed later in the same or another computer environment.
+//
+//Design an algorithm to serialize and deserialize a binary tree. There is no restriction on how your serialization/deserialization algorithm should work. You just need to ensure that a binary tree can be serialized to a string and this string can be deserialized to the original tree structure.
+//
+//Example: 
+//
+//You may serialize the following tree:
+//
+//    1
+//   / \
+//  2   3
+//     / \
+//    4   5
+//
+//as "[1,2,3,null,null,4,5]"
+//Clarification: The above format is the same as how LeetCode serializes a binary tree. You do not necessarily need to follow this format, so please be creative and come up with different approaches yourself.
+//
+//Note: Do not use class member/global/static variables to store states. Your serialize and deserialize algorithms should be stateless.
+//BEST ANS BFS with MARKER METHOD
+//public class Codec {
+//
+//    // Encodes a tree to a single string.
+//    public String serialize(TreeNode root) {
+//        if (root==null) return "";
+//        Queue<TreeNode> qu=new LinkedList<>();
+//        StringBuilder sb=new StringBuilder();
+//        qu.offer(root);
+//        sb.append(String.valueOf(root.val));
+//        sb.append(' ');
+//        while (!qu.isEmpty()) {
+//            TreeNode x=qu.poll();
+//            if (x.left==null) sb.append("null ");
+//            else {
+//                qu.offer(x.left);
+//                sb.append(String.valueOf(x.left.val));
+//                sb.append(' ');
+//            }
+//            if (x.right==null) sb.append("null ");
+//            else {
+//                qu.offer(x.right);
+//                sb.append(String.valueOf(x.right.val));
+//                sb.append(' ');
+//            }
+//        }
+//        return sb.toString();
+//    }
+//
+//    // Decodes your encoded data to tree.
+//    public TreeNode deserialize(String data) {
+//        if (data.length()==0) return null;
+//        String[] node=data.split(" ");
+//        Queue<TreeNode> qu=new LinkedList<>();
+//        TreeNode root=new TreeNode(Integer.valueOf(node[0]));
+//        qu.offer(root);
+//        int i=1;
+//        while (!qu.isEmpty()) {
+//            Queue<TreeNode> nextQu=new LinkedList<>();
+//            while (!qu.isEmpty()) {
+//                TreeNode x=qu.poll();
+//                if (node[i].equals("null")) x.left=null;
+//                else {
+//                    x.left=new TreeNode(Integer.valueOf(node[i]));
+//                    nextQu.offer(x.left);
+//                }
+//                i++;
+//                if (node[i].equals("null")) x.right=null;
+//                else {
+//                    x.right=new TreeNode(Integer.valueOf(node[i]));
+//                    nextQu.offer(x.right);
+//                }
+//                i++;
+//            }
+//            qu=nextQu;
+//        }
+//        return root;
+//    }
+//}
