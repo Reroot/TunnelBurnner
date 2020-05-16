@@ -16,7 +16,13 @@ import java.util.Stack;
 public class rotateArrayLeft {
 	
 	public static int[] rotateLeftTry4(int[] arr, int k) {
-	    //1.Use a que, we dont need to allocate new memmeory
+	    
+		//This added 20+ mins to the problem, dont forget to wrap
+		if(k > arr.length) {
+	        k = k % arr.length; 
+	    }
+		
+		//1.Use a que, we dont need to allocate new memmeory
 	    //push 4 and 5 at len-2, now we have holes, so we shift len-k-1, and have a temp to the next len-k+1, for loop len-k, len times
 	    
 	    //2.or for loop into a que, and fill the same array accordingly with overwrites/
@@ -30,8 +36,8 @@ public class rotateArrayLeft {
 	        kthStart++;
 	    }// [][][][1][2]
 	    int start = 0;
-	    kthStart = (arr.length-k);//NEED TO RESET THIS
-	    while(start < kthStart) {//que head 1,2,3...***WE NEED TO BREAK -1 BEFORE THE KTH PLACE AS IT"S ALREADY FILLED
+	    kthStart = (arr.length-k)-1;//NEED TO RESET THIS
+	    while(start <= kthStart) {//que head 1,2,3...***WE NEED TO BREAK -1 BEFORE THE KTH PLACE AS IT"S ALREADY FILLED
 	    	//IN THE LAST WHILE LOOP, YOU CAN DECIDE HOW TO FILL THE ARRAY BUT BE CAREFUL WITH OVERLAP
 	        arr[start] = que.poll();
 	        start++;
