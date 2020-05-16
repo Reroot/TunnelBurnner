@@ -1,6 +1,8 @@
 package FireCode;
 
 import java.util.Arrays;
+import java.util.LinkedList;
+import java.util.Queue;
 import java.util.Stack;
 
 //Rotate an array to the left by k positions without using extra space.k can be greater than the size of the array.
@@ -12,6 +14,32 @@ import java.util.Stack;
 
 
 public class rotateArrayLeft {
+	
+	public static int[] rotateLeftTry4(int[] arr, int k) {
+	    //1.Use a que, we dont need to allocate new memmeory
+	    //push 4 and 5 at len-2, now we have holes, so we shift len-k-1, and have a temp to the next len-k+1, for loop len-k, len times
+	    
+	    //2.or for loop into a que, and fill the same array accordingly with overwrites/
+	    Queue<Integer> que = new LinkedList<Integer>();
+	    for(int i = 0;i<arr.length;i++) {
+	        que.offer(arr[i]);
+	    }
+	    int kthStart = (arr.length-k);//we need to excude the extra int, and sub 1 once
+	    while(kthStart < arr.length) {//que head 1,2,3...
+	        arr[kthStart] = que.poll();
+	        kthStart++;
+	    }// [][][][1][2]
+	    int start = 0;
+	    kthStart = (arr.length-k);//NEED TO RESET THIS
+	    while(start < kthStart) {//que head 1,2,3...***WE NEED TO BREAK -1 BEFORE THE KTH PLACE AS IT"S ALREADY FILLED
+	    	//IN THE LAST WHILE LOOP, YOU CAN DECIDE HOW TO FILL THE ARRAY BUT BE CAREFUL WITH OVERLAP
+	        arr[start] = que.poll();
+	        start++;
+	    }// [3][4][5][1][2]
+	    
+	    return arr;
+	    
+	}
 	//below is failed due to arrlength-k?? this
 	//becuase the arr.length-k, we are putting in
 	//what we need first in the second index, not the
@@ -72,7 +100,8 @@ public class rotateArrayLeft {
 	}
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		rotateLeft(new int[] {1,2,3,4,5}, 2);
+		System.out.println(String.valueOf(rotateLeftTry4(new int[] {1,2,3,4,5}, 2)));
+		
 	}
 
 }

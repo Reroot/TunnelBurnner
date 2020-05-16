@@ -10,13 +10,18 @@ public class insertNewNodeAtHead {
 //			InsertAtHead(Head,1) ==> 1->1->2
 //			InsertAtHead(Head,2) ==> 2->1->2
 //			InsertAtHead(Head,3) ==> 3->1->2
+	public ListNode insertAtHead6(ListNode head, int data) {
+	    if(head == null) return new ListNode(data);
+	    ListNode newHead = new ListNode(data);
+	    newHead.next = head;
+	    return newHead;
+	}
 	public ListNode insertAtHead(ListNode head, int data) {
 	        ListNode newH = new ListNode(data);
 	        newH.next = head;
 	       
 	        return newH;
 	}
-	
 	public ListNode insertAtHead3(ListNode head, int data) {
 	    ListNode newHead = new ListNode(data);
 	    //newHead.data = data;
