@@ -14,7 +14,7 @@ public class findNthNodeFromEndNoMem {
 	               }
 	               if(n > length) return null;
 	               curr = head;
-	               int diff = length-n;
+	               int diff = length-n+1;//plus one becuase, we are subtracting lenth and the nth
 	               
 	               
 	               while(diff > 0) {
