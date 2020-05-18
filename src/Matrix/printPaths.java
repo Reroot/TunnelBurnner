@@ -31,8 +31,6 @@ public class printPaths {
 	    dfs(r, c-1, board, al, path);//down
 	    dfs(r+1, c, board, al, path);//right
 	    board[r][c] ^= 256;//ONCE WEVE USED UP UP AND DOWN< WE CAN UNMARK, AND CONTUINE AS RESTORE THE PATH
-	    
-
 	}
 	
 	
