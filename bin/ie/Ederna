@@ -1,7 +1,53 @@
 Ederna
 
-how to block access to an endpoint
-how would you request video from a browser
+>how to block access to an endpoint?
+
+Using HTTP header
+This is untrusted and very easy to crack.
+
+Use one static random generated API Key
+Very common and easy-implementation way. Server generated one static random string as key and client must carry when sending request.
+If you have to support web, this would be leak by web console.But if you only support app client and restrict your API connection with HTTPs. This should be safe enough.
+
+Dynamic change API key with AES crypto algorithm
+To prevent MITM or static API key is leak, I proposed to use AES crypto algorithm and encrypt current timestamp.
+When server receive, decrypt and check whether the request is valid or not.
+You can also append some string as salt to make the mechanism harder to brute force attack.
+
+For users
+
+ OAuth2 
+ 
+Token Authentication for additional endpoints
+
+
+
+>how would you request video from a browser
+
+VIDEO
+
+<input type="file" accept="video/*" capture="camera" id="recorder">
+<video id="player" controls></video>
+<script>
+  var recorder = document.getElementById('recorder');
+  var player = document.getElementById('player');
+
+  recorder.addEventListener('change', function(e) {
+    var file = e.target.files[0];
+    // Do something with the video file.
+    player.src = URL.createObjectURL(file);
+  });
+</script>
+
+IMAGE
+
+<input type="file" accept="image/*" id="file-input">
+<script>
+  const fileInput = document.getElementById('file-input');
+
+  fileInput.addEventListener('change', (e) => doSomethingWithFiles(e.target.files));
+</script>
+
 how to generate oauth
 how to secure api
 how to use node to create a server
