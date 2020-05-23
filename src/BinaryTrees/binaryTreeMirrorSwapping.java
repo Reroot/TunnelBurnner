@@ -2,7 +2,7 @@ package BinaryTrees;
 
 import java.util.*;
 
-public class binaryTreeMirror {
+public class binaryTreeMirrorSwapping {
 	static void mirrorBFS(TreeNode root) { 
 	    if (root == null) 
 	        return; 
