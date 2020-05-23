@@ -7,16 +7,14 @@ import java.util.Stack;
 
 
 
-public class preOrder {
+public class serizalize {
 
     
     String postOrder(TreeNode root) {
-    	
-    	    // Base Case 
+    	// Base Case 
 	    if (root == null) { 
 	        return ""; 
 	    } 
-	    	
     	// Create an empty stack and push root to it 
 	    Stack<TreeNode> stk = new Stack<TreeNode>(); 
 	    stk.push(root); 
@@ -37,7 +35,6 @@ public class preOrder {
 	        } else {
 	        	sb.append(curr).append(",");
 	        }
-	
 	        // Push right and left children of the popped node to stack 
 	        if (curr.right != null) { 
 	            stk.push(curr.right); 
