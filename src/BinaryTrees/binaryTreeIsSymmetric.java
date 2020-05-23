@@ -53,10 +53,10 @@ public class binaryTreeIsSymmetric {
 			}	
 			currL = queL.poll();
 			currR = queR.poll();
-
-			if(currL.data != currR.data) {
-				return false;
-			}
+            if (currL.left != null && currR.right == null ||
+            		currL.right != null && currR.left == null ||
+            				currR.left != null && currL.right == null ||
+            						currR.right != null && currL.left == null) return false;
 
 		}
 		return true;
