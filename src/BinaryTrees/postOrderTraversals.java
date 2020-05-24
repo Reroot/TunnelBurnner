@@ -3,7 +3,7 @@ package BinaryTrees;
 import java.util.Stack;
 
 public class postOrderTraversals {
-	//go all the way down before printing the stack
+	static //go all the way down before printing the stack
 	//print at the left most, so all the way down first, then right then right, then left most then on null go back up root
     String postOrder(TreeNode root) {
     	// Base Case 
@@ -38,10 +38,18 @@ public class postOrderTraversals {
 	            stk.push(curr.left); 
 	        } 
 	    } 
-	    return sb.toString();
+	    return String.valueOf(sb.toString());
     }
     
-    public static void main() {
- 
+	public static void main(String[] args) {
+
+		TreeNode tree = new TreeNode(1);
+        tree.left = new TreeNode(2); 
+        tree.right = new TreeNode(2); 
+        tree.left.left = new TreeNode(6); 
+        tree.left.right = new TreeNode(4); 
+        tree.right.left = new TreeNode(4); 
+        tree.right.right = new TreeNode(3);
+        System.out.println(postOrder(tree));
     }
 }
