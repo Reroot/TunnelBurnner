@@ -69,7 +69,7 @@ public class serizalize {
 
 	public static void main(String[] args) {
 		
-		TreeNode tree = new TreeNode(1);
+	   TreeNode tree = new TreeNode(1);
        tree.left = new TreeNode(2); 
        tree.right = new TreeNode(2); 
        tree.left.left = new TreeNode(6); 
