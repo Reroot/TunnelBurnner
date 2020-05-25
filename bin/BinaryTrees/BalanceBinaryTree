@@ -94,3 +94,29 @@ public int height(TreeNode node){
     }
     return Math.max(lH,rH)+1;
 }
+public class Solution {
+    public boolean isBalanced(TreeNode root) {
+       if (depthJudge(root) == -1) {
+           return false;
+       }
+       else {
+           return true;
+       }
+    }
+    
+     public int depthJudge(TreeNode root) {
+        if (root == null) {
+            return 0;
+        }
+        int ldepth = depthJudge(root.left);
+        int rdepth = depthJudge(root.right);
+        
+        if (ldepth == -1 || rdepth == -1 || Math.abs(ldepth - rdepth) > 1) {
+            return -1;
+        }
+        else {
+            return 1 + Math.max(ldepth, rdepth);
+        }
+    }
+}
+depth calculation and determining whether the tree is height-balanced or not could finish in one recursive loop.
