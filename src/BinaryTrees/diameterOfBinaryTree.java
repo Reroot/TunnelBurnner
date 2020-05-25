@@ -16,21 +16,18 @@ public class diameterOfBinaryTree {
 //	Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
 //
 //	Note: The length of path between two nodes is represented by the number of edges between them.
-    int max = 0;
+    static int max = 0;
     
-    public int diameterOfBinaryTree(TreeNode root) {
+    public static int diameterOfBinaryTree(TreeNode root) {
         maxDepth(root);
         return max;
     }
     
-    private int maxDepth(TreeNode root) {
+    private static int maxDepth(TreeNode root) {
         if (root == null) return 0;
-        
         int left = maxDepth(root.left);
         int right = maxDepth(root.right);
-        
         max = Math.max(max, left + right);
-        
         return Math.max(left, right) + 1;
     }
 	public static void main(String[] args) {
@@ -41,6 +38,8 @@ public class diameterOfBinaryTree {
 	       tree.left.right = new TreeNode(4); 
 	       tree.right.left = new TreeNode(4); //for seriralize binary tree
 	       tree.right.right = new TreeNode(3);//the oppiste of a postorder print give
+	       ;
+	       System.out.print(diameterOfBinaryTree(tree));
 	}
 
 }
