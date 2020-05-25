@@ -11,7 +11,11 @@ public class isBalanced {
     }
     
     public static int check(TreeNode r) {
-        if(r == null) return 0;//but it will be bottom us as we start adding from out base case 0
+        if(r == null) return 0;//or -1 this is the case if balanced, becuase
+        //root node, left -1, right -1 then -1-(-1) = 0 a blanced tree
+        //-1-(-2) = 1, still balanced
+        
+        
         int what = Math.max(check(r.left), check(r.right))+1;
         return what;//pull the longest consecutive path of left and right
         
