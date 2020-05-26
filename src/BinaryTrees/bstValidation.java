@@ -24,7 +24,7 @@ package BinaryTrees;
 import java.util.Stack;
 
 public class bstValidation {
-		//iterative sol 3
+		//iterative sol 3, in order
 		public boolean isValidBST3(TreeNode root) {
 		    if (root == null) return true;
 		    Stack<TreeNode> stack = new Stack<>();
