@@ -1,7 +1,11 @@
 package BinaryTrees;
 
+import java.util.HashMap;
+import java.util.Map;
+import java.util.Stack;
+
 public class diameterOfBinaryTree {
-//	The code is correct but the explanation is clearly wrong. So although the longest path doesn't 
+//	So although the longest path doesn't 
 //  have to go through the root node, it has to pass the root node of some subtree of the tree 
 	// (because it has to be from one leaf node to another leaf node, otherwise we can extend it for free). The longest path that passes a given node as the ROOT node is T = left_height+right_height. So you just calculate T for all nodes and output the max T.
 	//WHAT IS THE LONGEST PATH BETTWEN TWO NODE, IT's DIAMETER ONLY SPREAD OUT AT A LINKED LIST
@@ -22,7 +26,38 @@ public class diameterOfBinaryTree {
         maxDepth(root);
         return max;
     }
-    
+    //The idea is to use Post order traversal which means make sure the node is there till the left and right childs are processed that's the reason you use peek method in the stack to not pop it off without being done with the left and right child nodes. Then for each node calculate the max of the left and right sub trees depth and also simultaneouslt caluculate the overall max of the left and right subtrees count.
+
+    public int diameterOfBinaryTreeC(TreeNode root) {
+            if( root == null){
+                return 0;
+            }
+            if(root == null){
+                return 0;
+            }
+            int overallNodeMax = 0;
+            Stack<TreeNode> nodeStack = new Stack<>();
+            Map<TreeNode,Integer> nodePathCountMap = new HashMap<>();
+            nodeStack.push(root);
+            while(!nodeStack.isEmpty()){
+                TreeNode node = nodeStack.peek();
+                if(node.left != null && !nodePathCountMap.containsKey(node.left)){
+                    nodeStack.push(node.left);
+                }else if(node.right!=null && !nodePathCountMap.containsKey(node.right)){
+                    nodeStack.push(node.right);
+                }else {
+                    TreeNode rootNodeEndofPostOrder = nodeStack.pop();
+                    int leftMax = nodePathCountMap.getOrDefault(rootNodeEndofPostOrder.left,0);
+                    int rightMax = nodePathCountMap.getOrDefault(rootNodeEndofPostOrder.right,0);
+                    int nodeMax = 1 + Math.max(leftMax,rightMax);
+                    nodePathCountMap.put(rootNodeEndofPostOrder,nodeMax);
+                    overallNodeMax = Math.max(overallNodeMax,leftMax + rightMax );
+                }
+                
+            }
+            return overallNodeMax;
+            
+        }   
     private static int maxDepth(TreeNode root) {
         if (root == null) return 0;
         int left = maxDepth(root.left);
