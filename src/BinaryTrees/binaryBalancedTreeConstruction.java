@@ -62,52 +62,35 @@ public class binaryBalancedTreeConstruction {
     //and then use deleteRootNode to delete the root node of the subtree
     //and return the new root node. This idea is taken from 
     //https://discuss.leetcode.com/topic/67309/an-easy-understanding-o-h-time-o-1-space-java-solution.
-
-    private TreeNode deleteRootNode(TreeNode root) {
-        if (root == null) {
+    public TreeNode deleteNode(TreeNode root, int key) {
+        if(root == null){
             return null;
         }
-        if (root.left == null) {
-            return root.right;
-        }
-        if (root.right == null) {
-            return root.left;
-        }
-        TreeNode next = root.right;
-        TreeNode pre = null;
-        for(; next.left != null; pre = next, next = next.left);
-        next.left = root.left;
-        if(root.right != next) {
-            pre.left = next.right;
-            next.right = root.right;
-        }
-        return next;
-    }
-    
-    public TreeNode deleteNode(TreeNode root, int key) {
-        TreeNode cur = root;
-        TreeNode pre = null;
-        while(cur != null && cur.val != key) {
-            pre = cur;
-            if (key < cur.val) {
-                cur = cur.left;
-            } else if (key > cur.val) {
-                cur = cur.right;
+        if(key < root.val){
+            root.left = deleteNode(root.left, key);
+        }else if(key > root.val){
+            root.right = deleteNode(root.right, key);
+        }else{ //This else case means we found the key to delete
+            if(root.left == null){
+                return root.right;
+            }else if(root.right == null){
+                return root.left;
             }
-        }
-        if (pre == null) {
-            return deleteRootNode(cur);
-        }
-        if (pre.left == cur) {
-            pre.left = deleteRootNode(cur);
-        } else {
-            pre.right = deleteRootNode(cur);
+            
+            TreeNode minNode = findMin(root.right);
+            root.val = minNode.val;
+            root.right = deleteNode(root.right, root.val);
         }
         return root;
     }
-	public static void delete(TreeNode root, int target) {
-		
-	}
+
+    private TreeNode findMin(TreeNode node){
+        while(node.left != null){
+            node = node.left;
+        }
+        return node;
+    }
+    
 	public static void main(String[] args) {
 
 

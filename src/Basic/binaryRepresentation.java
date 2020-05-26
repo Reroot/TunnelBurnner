@@ -1,4 +1,4 @@
-package BinaryTrees;
+package Basic;
 
 public class binaryRepresentation {
 	public int binaryRepresentation(int val) {
