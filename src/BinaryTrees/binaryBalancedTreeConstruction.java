@@ -58,10 +58,12 @@ public class binaryBalancedTreeConstruction {
         }
     }
     
-    //Find the node to be removed and its parent using binary search, 
-    //and then use deleteRootNode to delete the root node of the subtree
-    //and return the new root node. This idea is taken from 
-    //https://discuss.leetcode.com/topic/67309/an-easy-understanding-o-h-time-o-1-space-java-solution.
+//    Recursively find the node that has the same value as the key, while setting the left/right nodes equal to the returned subtree
+//    Once the node is found, have to handle the below 4 cases
+//    node doesn't have left or right - return null
+//    node only has left subtree- return the left subtree
+//    node only has right subtree- return the right subtree
+//    node has both left and right - find the minimum value in the right subtree, set that value to the currently found node, then recursively delete the minimum value in the right subtreeme-o-1-space-java-solution.
     public TreeNode deleteNode(TreeNode root, int key) {
         if(root == null){
             return null;
