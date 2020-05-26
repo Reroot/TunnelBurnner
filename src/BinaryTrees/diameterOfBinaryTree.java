@@ -20,19 +20,45 @@ public class diameterOfBinaryTree {
 //	Return 3, which is the length of the path [4,2,1,3] or [5,2,1,3].
 //
 //	Note: The length of path between two nodes is represented by the number of edges between them.
-    static int max = 0;
-    
+	//without saiiving the max with memo or hash
+	
+	//simple with save
+	static int max = 0;
     public static int diameterOfBinaryTree(TreeNode root) {
         maxDepth(root);
         return max;
     }
+    private static int maxDepth(TreeNode root) {
+        if (root == null) return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+        max = Math.max(max, left + right);
+        return Math.max(left, right) + 1;
+    }
+	//bad complexity nlogn
+	public int diameterOfBinaryTree4(TreeNode root) {
+        if(root == null){
+            return 0;
+        }
+       int dia = depth(root.left) + depth(root.right);
+       int ldia = diameterOfBinaryTree4(root.left);
+       int rdia = diameterOfBinaryTree4(root.right);
+       return Math.max(dia,Math.max(ldia,rdia));
+        
+    }
+    public int depth(TreeNode root){
+        if(root == null){
+            return 0;
+        }
+        return 1+Math.max(depth(root.left), depth(root.right));
+    }
+	
+	
+
     //The idea is to use Post order traversal which means make sure the node is there till the left and right childs are processed that's the reason you use peek method in the stack to not pop it off without being done with the left and right child nodes. Then for each node calculate the max of the left and right sub trees depth and also simultaneouslt caluculate the overall max of the left and right subtrees count.
 
     public int diameterOfBinaryTreeC(TreeNode root) {
             if( root == null){
-                return 0;
-            }
-            if(root == null){
                 return 0;
             }
             int overallNodeMax = 0;
@@ -58,13 +84,7 @@ public class diameterOfBinaryTree {
             return overallNodeMax;
             
         }   
-    private static int maxDepth(TreeNode root) {
-        if (root == null) return 0;
-        int left = maxDepth(root.left);
-        int right = maxDepth(root.right);
-        max = Math.max(max, left + right);
-        return Math.max(left, right) + 1;
-    }
+
 	public static void main(String[] args) {
 		TreeNode tree = new TreeNode(1);
 	       tree.left = new TreeNode(2); 
