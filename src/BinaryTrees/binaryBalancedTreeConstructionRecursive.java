@@ -1,6 +1,6 @@
 package BinaryTrees;
 
-public class binaryBalancedTreeConstruction {
+public class binaryBalancedTreeConstructionRecursive {
 
 //class TreeNode {
 //    int val;
