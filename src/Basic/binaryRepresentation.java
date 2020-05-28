@@ -1,12 +1,12 @@
 package Basic;
 
 public class binaryRepresentation {
-	public int binaryRepresentation(int val) {
+	public int binaryRepresentationX(int val) {
 		if(val < 2) {
 			System.out.println(val);
 			//Integer.
 		}
-		return binaryRepresentation(val/2) + binaryRepresentation(val%2);
+		return binaryRepresentationX(val/2) + binaryRepresentationX(val%2);
 	}
 	public static void main(String[] args) {
 		
