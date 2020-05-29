@@ -28,7 +28,6 @@ public class levelOrderBST {
     	LinkedList<Integer> subList = new LinkedList<Integer>();
     	queue.offer(root);
     	while(!queue.isEmpty()) {
-    		//subList.add(queue.peek().val);
     		int cnt = queue.size(); 
     		for(int i = cnt;i>0;i--) {
     			TreeNode curr = queue.poll();
