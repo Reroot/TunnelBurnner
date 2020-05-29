@@ -1,4 +1,4 @@
-package Basic;
+package BinaryTrees;
 
 public class headAndTailRecursion {
 	private static void TopDownfun(int n)
