@@ -53,7 +53,27 @@ public class binaryTreeDiameterBettweenTwoNodes {
         return 1+Math.max(depth(root.left), depth(root.right));
     }
 	
-	
+	//Translated int JS
+//    var diameterOfBinaryTree = function(root) {
+//        let diameter = 0;
+//        
+//        dfs(root);
+//        
+//        return diameter;
+//        
+//        function dfs(node, level) {
+//            if (!node) return 0;
+//            
+//            const left = dfs(node.left);
+//            const right = dfs(node.right);
+//            
+//            // update diameter at every node
+//            diameter = Math.max(diameter, left + right);
+//
+//            // update the largest number of edge so far
+//            return 1 + Math.max(left, right);
+//        }
+//    };
 
     //The idea is to use Post order traversal which means make sure the node is there till the left and right childs are processed that's the reason you use peek method in the stack to not pop it off without being done with the left and right child nodes. Then for each node calculate the max of the left and right sub trees depth and also simultaneouslt caluculate the overall max of the left and right subtrees count.
 
