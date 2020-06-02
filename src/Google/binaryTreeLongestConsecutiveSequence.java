@@ -10,9 +10,57 @@ public class binaryTreeLongestConsecutiveSequence {
 //	path of length 1.***
 	
 //A CONSECTIVE PATH DIFFERS BY ONLY ONE, TRICK BECUASE IT COUlD DIFFER BY MORE.
+	
+	
+	class Solution {
+	    int max;
+	 
+	    public int longestConsecutive(TreeNode root) {
+	        helper(root);
+	        return max;
+	    }
+	 
+	    private int helper(TreeNode t){
+	        if(t==null){
+	            return 0;
+	        }
+	 
+	        int leftMax = helper(t.left);
+	        int rightMax = helper(t.right);
+	 
+	        int leftTotal = 0;
+	        if(t.left == null){
+	            leftTotal = 1;
+	        }else if(t.val+1 == t.left.val){
+	            leftTotal = leftMax+1;    
+	        }else{
+	            leftTotal = 1;
+	        }
+	 
+	        int rightTotal = 0;
+	        if(t.right == null){
+	            rightTotal = 1;
+	        }else if(t.val+1 == t.right.val){
+	            rightTotal = rightMax+1;    
+	        }else{
+	            rightTotal = 1;
+	        }
+	 
+	        max = Math.max(max, leftTotal);
+	        max = Math.max(max, rightTotal);
+	 
+	        int longer = Math.max(leftTotal, rightTotal);   
+	 
+	        return longer;
+	    }    
+	}
+	
+	
+
+	//A mess but good theory crafting - may will fix later
 	int currCount = 0;
 	int maxCount = 0;
-    private void longestConsecutiveOne(TreeNode root) {
+    private int longestConsecutiveOne(TreeNode root) {
     	//core logic - if(root.)//we only increase to to the right, a left degree 
     	//breaks this, but since this is not a BST, it's just a b tree
     	// we need to test left and right
@@ -22,30 +70,38 @@ public class binaryTreeLongestConsecutiveSequence {
     	
     	TreeNode curr = root;
     	//TreeNode curr = root;
-    	Stack<TreeNode> stkL = new Stack<TreeNode>();//left
-    	Stack<TreeNode> stkR = new Stack<TreeNode>();//right
-    	
+    	Stack<TreeNode> stk = new Stack<TreeNode>();//left
+
+    	stk.push(root);
     	while(curr != null) {
-    		
+	    	if(root.right == null && 1+root.val == root.left.val) {//left tunnel bigger
+	    		maxCount = Math.max(maxCount, currCount++);
+	    		curr = curr.left;
+	    		stk.push(curr);
+	    	} else {
+	    		currCount = 1;
+	    		stk.pop();
+	    		curr = curr.left;
+	    		stk.push(curr);
+	    	}
+	    	//update, ability to go left right and undo
+	    	if(root.left == null && root.val+1 == root.right.val) {//right tunnel bigger
+	    		maxCount = Math.max(maxCount, currCount++);
+	    		curr = curr.right;
+	    		stk.push(curr);
+	    	} else {
+	    		currCount = 1;
+	    		stk.pop();
+	    	}
     	}
-    	//update, ability to go left right and undo
-    	if(root.left == null && root.val < root.right.val) {//right tunnel
-    		maxCount = Math.max(maxCount, currCount++);
-    		curr = curr.right;
-    		stkR.push(curr);
-    	} else {
-    		currCount--;
-    		stkR.pop();
-    	}
+    	
+    	return maxCount;
     	
     	
+
     	
-    	if(root.right == null && root.val < root.left.val) {//left tunnel
-    		maxCount = Math.max(maxCount, currCount++);
-    	} else {
-    		currCount = 0;
-    	}
     	
+
     }
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
