@@ -8,13 +8,12 @@ public class binaryTreeLongestConsecutiveSequence {
 //	path which comprises of nodes with ***consecutive values
 //	in increasing order. Every node is considered as a 
 //	path of length 1.***
-	
+//https://www.programcreek.com/2014/04/leetcode-binary-tree-longest-consecutive-sequence-java/
 //A CONSECTIVE PATH DIFFERS BY ONLY ONE, TRICK BECUASE IT COUlD DIFFER BY MORE.
+		//BFS 1 - Todo
 	
-	
-	class Solution {
+		//DFS 2
 	    int max;
-	 
 	    public int longestConsecutive(TreeNode root) {
 	        helper(root);
 	        return max;
@@ -53,10 +52,9 @@ public class binaryTreeLongestConsecutiveSequence {
 	 
 	        return longer;
 	    }    
-	}
-	
-	
 
+	
+	//DFS 2
 	//A mess but good theory crafting - may will fix later
 	int currCount = 0;
 	int maxCount = 0;
@@ -72,15 +70,16 @@ public class binaryTreeLongestConsecutiveSequence {
     	//TreeNode curr = root;
     	Stack<TreeNode> stk = new Stack<TreeNode>();//left
 
-    	stk.push(root);
+    	
     	while(curr != null) {
+    		stk.push(curr);
 	    	if(root.right == null && 1+root.val == root.left.val) {//left tunnel bigger
 	    		maxCount = Math.max(maxCount, currCount++);
 	    		curr = curr.left;
 	    		stk.push(curr);
 	    	} else {
 	    		currCount = 1;
-	    		stk.pop();
+	    		curr = stk.pop();
 	    		curr = curr.left;
 	    		stk.push(curr);
 	    	}
@@ -91,7 +90,9 @@ public class binaryTreeLongestConsecutiveSequence {
 	    		stk.push(curr);
 	    	} else {
 	    		currCount = 1;
-	    		stk.pop();
+	    		curr = stk.pop();
+	    		curr = curr.right;
+	    		stk.push(curr);
 	    	}
     	}
     	
