@@ -8,8 +8,45 @@ package Google;
  *
  */
 public class longestAbsoluteFilePath {
-//Just pay attention that in String "\n", "\t", "\123" will all be count the length as one
 
+//unrun selfmade js vers
+//	/**
+//	 * @param {string} input
+//	 * @return {number}
+//	 */
+//	var lengthLongestPath = function(input) {
+//	    //   \n\ go in, contuine counting
+//	    //   \t\ marks the depth while we are on them the depth is marked
+//	    
+//	    
+//	    //To count abs path we need consecutive incraeasing tabs
+//	    //save the current \t as a key to the value of the curr count
+//	    //we will also need to subtract -2 becuase we dont count the tabs
+//	    //we can use this to count through the entire string correctly
+//	    let currMax = 0;
+//	    let max = 0;
+//	    let map = new Map([]);
+//	    let str = input.split('\t').splice('\n', '\');//count \t as 0, and count \n as 1, later on based on the split OR splice it out and count \
+//	    let level = 0;
+//	    for(let i = 0;i<input.length;i++) {
+//	        currMax++;
+//	        while('\t' === str[i]) {//save current count to map
+//	           //t count
+//	            let level = level++;
+//	            
+//	            if(input[i] !== '\t') {
+//	               map.set(level, currMax);//level 1 first
+//	            } 
+//	        }
+//	        
+//	        if(map.get(level)) { //if we traverse and level already exists
+//	           //reset the count to the last currMax at that location
+//	         }//then coutinue counting
+//	    }
+//	    
+//	};
+//working code - but not selfmade
+//Just pay attention that in String "\n", "\t", "\123" will all be count the length as one
 	public static int lengthLongestPath(String input) {
         String[] paths = input.split("\n");
         int[] stack = new int[paths.length + 1];
