@@ -1,33 +1,23 @@
 package Grokking;
 
-public class avgOfAllContiguous {
+public class avgOfAllContiguous_SeriesOneSlidingWindow {
 	
-	
-	public static double[] contiguousOptimized(double[] a, double k) {
-		// forEach(i+1 forEach(vaLinA()upToK)
-		double[] avgrages = new double[(int) (a.length - k + 1)];
-		double currSum = 0;
-		if(a.length < k) k = (a.length%k);//to avoid crash as well
-		//loop around
-		int memo = 0;
-		
-		for(double i=0;i<a.length - k;i++) {//subtract k to close the window, as we are shifting k at the end
-			currSum = currSum + a[(int) i];
-			for(double j = i;j<i+k;j++) {//+i later?
-				//currSum = currSum + a[(int) j];
-				System.out.println(currSum);
+	public static double[] contiguousOptimized(double[] a, int k) {
+		double[] avg = new double[(a.length - k + 1)];
+		double windowSum = 0;
+		int windowStart = 0;
+		for(int windowEnd = 0;windowEnd<a.length;windowEnd++) {
+			windowSum = windowSum + a[windowEnd] ;
+			if(windowEnd >= k - 1) {//when the window is filled and ready
+				avg[windowStart] = windowSum / k;				//we calculate avg when we fill our window
+				windowSum = windowSum - a[windowStart];				//System.out.println(avg[windowStart]);
+
+				windowStart++;
 			}
-			avgrages[(int) i] = currSum/k;
-			System.out.println("avg: " + avgrages[(int) i]);
-			//k need to shift too since it's a window
-			//i started at zero, next it will shift a window + 1 with k
-			//k++; //k started at 5, not it's at 6
-			currSum = 0;//also reset current sum for next iter
 		}
-		return a;
+		return avg;
 	}
-		
-		
+
 	// 1 brute solution
 	// Math.avg or , sum of all k value / k, works sort of
 	public static double[] contiguousBrutal(double[] a, double k) {
@@ -68,7 +58,9 @@ public class avgOfAllContiguous {
 // add +a[K], now we dont have to iterate K-2 Elements
 	
 	public static void main(String[] args) {
-		contiguousBrutal(new double[] {1, 3, 2, 6, -1, 4, 1, 8, 2}, 5);
+		//contiguousBrutal(new double[] {1, 3, 2, 6, -1, 4, 1, 8, 2}, 5);
+		contiguousOptimized(new double[] {1, 3, 2, 6, -1, 4, 1, 8, 2}, 5);
+
 	}
 
 }
