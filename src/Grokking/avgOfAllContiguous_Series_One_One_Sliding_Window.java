@@ -1,6 +1,6 @@
 package Grokking;
 
-public class avgOfAllContiguous_SeriesOneSlidingWindow {
+public class avgOfAllContiguous_Series_One_One_Sliding_Window {
 	
 	public static double[] contiguousOptimized(double[] a, int k) {
 		double[] avg = new double[(a.length - k + 1)];
@@ -77,3 +77,6 @@ public class avgOfAllContiguous_SeriesOneSlidingWindow {
 //Here is the final output containing the averages of all contiguous subarrays of size 5:
 //
 //Output: [2.2, 2.8, 2.4, 3.6, 2.8]
+
+//In some problems, the size of the sliding window is not fixed. We have to expand or shrink the window based on the problem constraints. We will see a few examples of such problems in the next chapters.
+
